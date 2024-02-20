@@ -9,11 +9,11 @@ const data = [
   },
   {
     name: 'Resume',
-    url:  'http://accell.dev/assets/docs/ericcolon_resume.pdf',
+    url:  'http://accell.dev/assets/files/ericcolon_resume.pdf',
   },
   {
     name: 'Email',
-    url:  'mailto:me@accell.dev',
+    url:  'mailto:me@ericcolon.com',
   },
 ];
 
