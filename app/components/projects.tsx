@@ -46,7 +46,7 @@ const data = [
   },
   {
     id        : 'knightHacks',
-    link      : 'http://knighthacks.org',
+    link      : 'https://club.knighthacks.org/',
     linkTitle : 'Visit the Knight Hacks hackathon website',
     image     : 'knighthacks.png',
     name      : 'Knight Hacks',
