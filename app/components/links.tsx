@@ -23,7 +23,7 @@ const Links = () => {
       <li>
         <a
           key={link.name}
-          className="block p-2 transition-all ease-linear shadow-inset-pixelated bg-[#515151] border-2 border-[#252525] hover:bg-gray-500"
+          className="block relative p-2 transition-all ease-linear shadow-inset-pixelated bg-[#515151] bit-border hover:bg-gray-500"
           href={link.url}
           title={link.name}
         >

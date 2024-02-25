@@ -111,39 +111,33 @@ const data = [
 
 const Projects = () => {
   const projectNodes = data.map((project) => {
-    let divStyle = {
-      backgroundImage: `url(/assets/images/projects/${project.image})`,
-      backgroundPosition: 'center center',
-    };
-
-    if (project.id === 'bazaar' || project.id === 'onlineUcf') {
-      divStyle.backgroundPosition = 'top left';
-    }
-
     return (
       <li
         key={project.id}
-        className="block overflow-hidden border-2 border-gray-500"
+        className="relative block bit-border"
       >
         <a
-          className="relative flex flex-col text-white bg-gray-400 aspect-video group"
+          className="relative flex flex-col overflow-hidden text-white bg-gray-400 aspect-video group"
           href={project.link}
           title={project.linkTitle}
           rel="nofollow noreferrer noopener"
           target="_blank"
         >
-          <div
-            className="absolute inset-0 overflow-hidden transition-all duration-300 ease-linear bg-no-repeat bg-cover opacity-60 group-hover:blur-sm group-hover:brightness-50"
-            style={divStyle}
-          ></div>
-          <div className="relative z-20 flex flex-col items-center justify-center w-full p-4 mt-auto transition-opacity duration-300 ease-linear bg-black/50 sm:bg-transparent sm:mt-0 sm:h-full sm:opacity-0 sm:group-hover:opacity-100">
-            <h2 className="mb-2 text-base font-black tracking-wider uppercase">
-              {project.name}
-            </h2>
-            <p className="text-sm tracking-wide">
-              {project.desc}
-            </p>
-          </div>
+          <figure className="relative h-full overflow-hidden">
+            <img
+              className="absolute inset-0 object-cover w-full h-full"
+              src={`/assets/images/projects/${project.image}`}
+              alt={project.name}
+            />
+            <figcaption className="absolute z-20 flex flex-col items-center justify-center w-full p-4 mt-auto transition-opacity duration-300 ease-linear bg-black/50 sm:mt-0 sm:h-full sm:opacity-0 sm:group-hover:opacity-100">
+              <p className="mb-2 text-base font-black tracking-wider uppercase">
+                {project.name}
+              </p>
+              <p className="text-sm tracking-wide">
+                {project.desc}
+              </p>
+            </figcaption>
+          </figure>
         </a>
       </li>
     );
