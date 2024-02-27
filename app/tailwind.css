@@ -7,22 +7,41 @@
     cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAgMAAAAOFJJnAAAACVBMVEUAAAAAAAD///+D3c/SAAAAAXRSTlMAQObYZgAAAE5JREFUeAFdzAEGBQEIRdGg/QVB+wvuKv/jG9ObiMNVkRXR2hez0ayBZigDgyFB3Bf/toaGxTCDWBfP/dhHLtQW6iJbjAtF6gsVR5bhOz8DolGvuUNlQAAAAABJRU5ErkJggg==), auto;
   }
 
-  a,button:not(disabled),label{
+  ::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border: 2px solid #252525;
+    border-radius: 1px;
+    box-shadow: inset 2px 2px 0 0 #919191;
+  }
+
+  /* ::-webkit-scrollbar-track {
+    background: #515151;
+  } */
+
+  a,
+  button:not(disabled),
+  label {
     cursor:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAzElEQVRYR+2X0Q6AIAhF5f8/2jYXZkwEjNSVvVUjDpcrGgT7FUkI2D9xRfQETwNIiWO85wfINfQUEyxBG2ArsLwC0jioGt5zFcwF4OYDPi/mBYKm4t0U8ATgRm3ThFoAqkhNgWkA0jJLvaOVSs7j3qMnSgXWBMiWPXe94QqMBMBc1VZIvaTu5u5pQewq0EqNZvIEMCmxAawK0DNkay9QmfFNAJUXfgGgUkLaE7j/h8fnASkxHTz0DGIBMCnBeeM7AArpUd3mz2x3C7wADglA8BcWMZhZAAAAAElFTkSuQmCC) 14 0, pointer;
   }
 
-  button[disabled]{
+  button[disabled] {
     cursor:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAbElEQVR4Ae3XgQaAQBAG4d7/pQuAYNYk9j//EdA2nxzuLrFueMTaA+AgLAAlAYbBMSgFwGHahDy3GPDpAwISAsAwzEUAfJh/NUPiAGKTpQN8+BSAD+cARi/+Gd4NeA3q8FpAT0Q9Ffdm1NvxA4SSqau88igLAAAAAElFTkSuQmCC), auto;
   }
 
   figure:after {
-      content: "";
-      background: linear-gradient(transparent 0, rgba(0, 0, 0, 0.25) 1px) repeat top left / 2px 2px, linear-gradient(90deg, transparent 0, rgba(0, 0, 0, 0.25) 1px) repeat top left / 2px 2px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+    content: "";
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(transparent 0, rgba(0, 0, 0, 0.15) 1px) repeat top left / 2px 2px, linear-gradient(90deg, transparent 0, rgba(0, 0, 0, 0.15) 1px) repeat top left / 2px 2px;
   }
 
   .bit-border::before,
@@ -47,6 +66,230 @@
     top: 0;
     border-left: 2px #252525 solid;
     border-right: 2px #252525 solid;
+  }
+
+  .bit-border-tab::before,
+  .bit-border-tab::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+  }
+
+  .bit-border-tab::before {
+    top: -2px;
+    left: 0;
+    border-top: 2px #252525 solid;
+    border-bottom: 0;
+  }
+
+  .bit-border-tab::after {
+    left: -2px;
+    top: 0;
+    border-left: 2px #252525 solid;
+    border-right: 2px #252525 solid;
+  }
+
+  .bit-border-step1 {
+    border-style: solid;
+    border-width: 2px 0;
+    margin: 0 2px;
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      border: inherit;
+      border-width: 0 2px;
+      content: '';
+      height: 100%;
+      left: -2px;
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      right: -2px;
+      z-index: -1;
+    }
+  }
+
+  .bit-border-step2 {
+    border-style: solid;
+    border-width: 2px 0;
+    margin: 0 4px;
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      background-color: inherit;
+      border: inherit;
+      border-width: 0 2px;
+      bottom: 2px;
+      content: '';
+      left: -4px;
+      pointer-events: none;
+      position: absolute;
+      top: 2px;
+      right: -4px;
+      z-index: -1;
+    }
+
+    &::after {
+      border: inherit;
+      border-width: 0 2px;
+      bottom: 0;
+      content: '';
+      left: -2px;
+      position: absolute;
+      top: 0;
+      right: -2px;
+      z-index: -2;
+    }
+  }
+
+  .bit-border-step3 {
+    border-style: solid;
+    border-width: 2px 0;
+    box-shadow: -4px 0 0 -2px, 4px 0 0 -2px, inset 2px 2px 0 0 #919191;
+    margin: 0 6px;
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      background-color: inherit;
+      border: inherit;
+      border-width: 0 2px;
+      bottom: 4px;
+      content: '';
+      left: -6px;
+      pointer-events: none;
+      position: absolute;
+      top: 4px;
+      right: -6px;
+      z-index: -1;
+    }
+
+    &::after {
+      background: inherit;
+      border: inherit;
+      border-width: 0 2px;
+      bottom: 2px;
+      content: '';
+      left: -4px;
+      position: absolute;
+      top: 2px;
+      right: -4px;
+      z-index: -2;
+    }
+  }
+
+  .bit-border-step3-tab {
+    position: relative;
+    z-index: 1;
+    margin: 0 5px;
+    border-style: solid;
+    border-width: 2px 0;
+    box-shadow: -4px 0 0 -2px #252525, 4px 0 0 -2px #252525, inset 2px 2px 0 0 #919191;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      right: -6px;
+      bottom: 0;
+      left: -6px;
+      z-index: -1;
+      background-color: inherit;
+      border: inherit;
+      border-width: 0 2px;
+      pointer-events: none;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      right: -4px;
+      bottom: 0;
+      left: -4px;
+      z-index: -2;
+      background: inherit;
+      border: inherit;
+      border-width: 0 2px;
+    }
+  }
+
+  .bit-border-b-step3 {
+    position: relative;
+    z-index: 1;
+    margin: 0 6px;
+    border-style: solid;
+    border-width: 2px 0;
+    box-shadow: -4px 0 0 -2px, 4px 0 0 -2px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      right: -6px;
+      bottom: 4px;
+      left: -6px;
+      z-index: -1;
+      background-color: inherit;
+      border: inherit;
+      border-width: 2px 2px 0 2px;
+      pointer-events: none;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: -4px;
+      top: -2px;
+      right: -4px;
+      z-index: -2;
+      background: inherit;
+      border: inherit;
+      border-width: 2px 2px 0 2px;
+    }
+  }
+
+  .bit-border-step4 {
+    border-style: solid;
+    border-width: 2px 0;
+    box-shadow: -6px 0 0 -2px, 6px 0 0 -2px;
+    margin: 0 .5em;
+    padding: .5em 2px;
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      background-color: inherit;
+      border: inherit;
+      border-width: 0 2px;
+      bottom: 6px;
+      content: '';
+      left: -.5em;
+      pointer-events: none;
+      position: absolute;
+      top: 6px;
+      right: -.5em;
+      z-index: -1;
+    }
+
+    &::after {
+      background-color: inherit;
+      border: inherit;
+      border-width: 0 2px;
+      bottom: 2px;
+      content: '';
+      left: -6px;
+      position: absolute;
+      top: 2px;
+      right: -6px;
+      z-index: -2;
+    }
   }
 }
 

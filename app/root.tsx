@@ -22,7 +22,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="text-base bg-gray-300 text-neutral-700">
+      <body className="text-base bg-gray-300 text-neutral-800 min-h-screen flex flex-col items-center justify-center [image-rendering:pixelated]">
         <Outlet />
         <ScrollRestoration />
         <Scripts />
